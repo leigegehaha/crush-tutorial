@@ -94,54 +94,55 @@
 
           <div class="sub">
             <h3>安装方式</h3>
-            <div class="tabs">
-              <div class="tab-bar">
-                <button class="tab-btn active" onclick="switchTab(this, 'install-script')">一键脚本</button>
-                <button class="tab-btn" onclick="switchTab(this, 'install-brew')">Homebrew</button>
-                <button class="tab-btn" onclick="switchTab(this, 'install-go')">Go Install</button>
-                <button class="tab-btn" onclick="switchTab(this, 'install-manual')">手动下载</button>
-              </div>
-              <div class="tab-panel active" id="install-script">
-                <div class="code-block">
-                  <div class="code-header"><span class="lang">bash — 推荐方式</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-                  <div class="code-body"># 一键安装（自动检测系统架构）
+            <p>选择适合你的安装方式：</p>
+            
+            <div class="install-method">
+              <h4>📦 方式一：一键脚本安装（推荐）</h4>
+              <div class="code-block">
+                <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                <pre class="code-body"># 一键安装（自动检测系统架构）
 curl -fsSL https://charm.sh/install/crush | bash
 
 # 安装后验证
-crush --version</div>
-                </div>
+crush --version</pre>
               </div>
-              <div class="tab-panel" id="install-brew">
-                <div class="code-block">
-                  <div class="code-header"><span class="lang">bash — macOS/Linux</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-                  <div class="code-body"># Homebrew 安装
+            </div>
+
+            <div class="install-method">
+              <h4>🍺 方式二：Homebrew 安装（macOS/Linux）</h4>
+              <div class="code-block">
+                <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                <pre class="code-body"># Homebrew 安装
 brew install charmbracelet/tap/crush
 
 # 或使用官方 tap
 brew tap charmbracelet/tap
-brew install crush</div>
-                </div>
+brew install crush</pre>
               </div>
-              <div class="tab-panel" id="install-go">
-                <div class="code-block">
-                  <div class="code-header"><span class="lang">bash — Go 安装</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-                  <div class="code-body"># Go install（需要 Go 1.21+）
+            </div>
+
+            <div class="install-method">
+              <h4>🐹 方式三：Go Install</h4>
+              <div class="code-block">
+                <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                <pre class="code-body"># Go install（需要 Go 1.21+）
 go install github.com/charmbracelet/crush@latest
 
 # 确保 $GOPATH/bin 在 PATH 中
-export PATH=$PATH:$(go env GOPATH)/bin</div>
-                </div>
+export PATH=$PATH:$(go env GOPATH)/bin</pre>
               </div>
-              <div class="tab-panel" id="install-manual">
-                <div class="code-block">
-                  <div class="code-header"><span class="lang">下载地址</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-                  <div class="code-body"># GitHub Releases 页面
+            </div>
+
+            <div class="install-method">
+              <h4>⬇️ 方式四：手动下载</h4>
+              <div class="code-block">
+                <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                <pre class="code-body"># GitHub Releases 页面
 https://github.com/charmbracelet/crush/releases
 
 # 下载对应平台的二进制文件后
 chmod +x crush
-sudo mv crush /usr/local/bin/</div>
-                </div>
+sudo mv crush /usr/local/bin/</pre>
               </div>
             </div>
           </div>
@@ -150,7 +151,7 @@ sudo mv crush /usr/local/bin/</div>
             <h3>验证安装</h3>
             <div class="code-block">
               <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-              <div class="code-body"># 检查版本
+              <pre class="code-body"># 检查版本
 crush --version
 
 # 启动 Crush
@@ -160,7 +161,7 @@ crush
 crush -c /path/to/project
 
 # 查看帮助
-crush --help</div>
+crush --help</pre></div>
             </div>
           </div>
         </section>
@@ -174,7 +175,7 @@ crush --help</div>
             <p>Crush 需要配置 AI 模型的 API 密钥才能工作。支持多种 LLM 提供商：</p>
             <div class="code-block">
               <div class="code-header"><span class="lang">bash — 设置环境变量</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-              <div class="code-body"># Anthropic Claude（推荐）
+              <pre class="code-body"># Anthropic Claude（推荐）
 export ANTHROPIC_API_KEY="sk-ant-..."
 
 # OpenAI GPT
@@ -185,7 +186,7 @@ export GEMINI_API_KEY="AIza..."
 
 # 将环境变量添加到 shell 配置文件
 echo 'export ANTHROPIC_API_KEY="sk-ant-..."' >> ~/.zshrc
-source ~/.zshrc</div>
+source ~/.zshrc</pre>
             </div>
             <div class="tip"><strong>💡 建议将环境变量添加到 shell 配置文件：</strong><code>~/.zshrc</code> 或 <code>~/.bashrc</code>，这样每次打开终端都会自动加载。</div>
           </div>
@@ -194,11 +195,11 @@ source ~/.zshrc</div>
             <h3>第二步：启动 Crush</h3>
             <div class="code-block">
               <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-              <div class="code-body"># 进入项目目录
+              <pre class="code-body"># 进入项目目录
 cd /path/to/your/project
 
 # 启动 Crush
-crush</div>
+crush</pre>
             </div>
             <div class="card">
               <h4>🆕 首次启动</h4>
@@ -216,7 +217,7 @@ crush</div>
             <h3>第三步：开始对话</h3>
             <div class="code-block">
               <div class="code-header"><span class="lang">示例对话</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-              <div class="code-body"># 理解代码
+              <pre class="code-body"># 理解代码
 "解释一下这个项目的路由处理逻辑"
 
 # 修复 Bug
@@ -229,7 +230,7 @@ crush</div>
 "为 auth/handler.go 中的 Login 函数生成单元测试"
 
 # 重构代码
-"将这个函数拆分成更小的辅助函数"</div>
+"将这个函数拆分成更小的辅助函数"</pre></div>
             </div>
           </div>
 
@@ -237,13 +238,13 @@ crush</div>
             <h3>第四步：切换模型</h3>
             <div class="code-block">
               <div class="code-header"><span class="lang">模型切换</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-              <div class="code-body"># 快捷键切换模型
+              <pre class="code-body"># 快捷键切换模型
 Ctrl+O  → 打开模型选择对话框
 
 # 命令行指定
 crush --model claude-sonnet-4-20250514
 crush --model gpt-4o
-crush --model gemini-2.5-pro</div>
+crush --model gemini-2.5-pro</pre></div>
             </div>
           </div>
         </section>
@@ -271,7 +272,7 @@ crush --model gemini-2.5-pro</div>
             <h3>CLI 参数</h3>
             <div class="code-block">
               <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-              <div class="code-body"># 正常启动
+              <pre class="code-body"># 正常启动
 crush
 
 # 指定工作目录
@@ -287,7 +288,7 @@ crush -p "解释这个函数的作用"
 crush --help
 
 # 查看版本
-crush --version</div>
+crush --version</pre></div>
             </div>
           </div>
 
@@ -403,7 +404,7 @@ crush --version</div>
                   <p>支持通过 Ollama 运行本地模型，完全离线，零 API 费用：</p>
                   <div class="code-block" style="margin-top:8px">
                     <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-                    <div class="code-body"># 安装 Ollama
+                    <pre class="code-body"># 安装 Ollama
 curl -fsSL https://ollama.ai/install.sh | sh
 
 # 下载编程专用模型
@@ -412,7 +413,7 @@ ollama pull codellama:7b
 ollama pull deepseek-coder:6.7b
 
 # 在 Crush 中使用
-crush --model ollama/llama3.2</div>
+crush --model ollama/llama3.2</pre></div>
                   </div>
                 </div></div>
               </div>
@@ -485,14 +486,14 @@ crush --model ollama/llama3.2</div>
             <h3>配置文件位置</h3>
             <div class="code-block">
               <div class="code-header"><span class="lang">配置文件优先级</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-              <div class="code-body"># 1. 用户全局配置
+              <pre class="code-body"># 1. 用户全局配置
 ~/.config/crush/config.json
 
 # 2. XDG 标准位置
 $XDG_CONFIG_HOME/crush/config.json
 
 # 3. 项目配置（优先级最高）
-./.crush/config.json</div>
+./.crush/config.json</pre></div>
             </div>
           </div>
 
@@ -500,7 +501,7 @@ $XDG_CONFIG_HOME/crush/config.json
             <h3>配置示例</h3>
             <div class="code-block">
               <div class="code-header"><span class="lang">json — config.json</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-              <div class="code-body">{
+              <pre class="code-body">{
   "model": "claude-sonnet-4-20250514",
   "provider": "anthropic",
   "theme": "dark",
@@ -522,7 +523,7 @@ $XDG_CONFIG_HOME/crush/config.json
       "apiKey": "${OPENAI_API_KEY}"
     }
   }
-}</div>
+}</pre></div>
             </div>
           </div>
 
@@ -577,7 +578,7 @@ $XDG_CONFIG_HOME/crush/config.json
             <h3>工具使用示例</h3>
             <div class="code-block">
               <div class="code-header"><span class="lang">对话示例 — 让 Crush 使用工具</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-              <div class="code-body"># 让 Crush 搜索代码
+              <pre class="code-body"># 让 Crush 搜索代码
 "搜索所有包含 'TODO' 的注释"
 
 # 让 Crush 运行命令
@@ -590,7 +591,7 @@ $XDG_CONFIG_HOME/crush/config.json
 "在 main.go 中添加一个健康检查端点"
 
 # 让 Crush 查看 Git 状态
-"查看最近的提交记录，总结改动内容"</div>
+"查看最近的提交记录，总结改动内容"</pre></div>
             </div>
           </div>
         </section>
@@ -613,11 +614,11 @@ $XDG_CONFIG_HOME/crush/config.json
                 </ul>
                 <div class="code-block" style="margin-top:8px">
                   <div class="code-header"><span class="lang">bash — 安装 Ghostty</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-                  <div class="code-body"># macOS
+                  <pre class="code-body"># macOS
 brew install --cask ghostty
 
 # Linux
-sudo apt install ghostty</div>
+sudo apt install ghostty</pre></div>
                 </div>
               </div></div>
             </div>
@@ -657,11 +658,11 @@ sudo apt install ghostty</div>
                 <p>终端脚本工具箱，可以在 shell 脚本中使用 Charm 风格的交互组件。</p>
                 <div class="code-block" style="margin-top:8px">
                   <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-                  <div class="code-body"># 安装 Gum
+                  <pre class="code-body"># 安装 Gum
 brew install charmbracelet/tap/gum
 
 # 示例：选择文件
-FILE=$(gum choose src/main.go src/utils.go)</div>
+FILE=$(gum choose src/main.go src/utils.go)</pre></div>
                 </div>
               </div></div>
             </div>
@@ -800,7 +801,7 @@ FILE=$(gum choose src/main.go src/utils.go)</div>
             <p>Crush 支持通过 MCP（Model Context Protocol）扩展能力，连接外部工具和数据源：</p>
             <div class="code-block">
               <div class="code-header"><span class="lang">json — crush MCP 配置</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-              <div class="code-body">{
+              <pre class="code-body">{
   "mcpServers": {
     "github": {
       "command": "npx",
@@ -817,7 +818,7 @@ FILE=$(gum choose src/main.go src/utils.go)</div>
       }
     }
   }
-}</div>
+}</pre></div>
             </div>
           </div>
 
@@ -860,14 +861,14 @@ FILE=$(gum choose src/main.go src/utils.go)</div>
                 <div class="acc-body"><div class="acc-inner">
                   <div class="code-block">
                     <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-                    <div class="code-body"># ✅ 推荐：使用环境变量
+                    <pre class="code-body"># ✅ 推荐：使用环境变量
 export ANTHROPIC_API_KEY="sk-ant-..."
 
 # ❌ 避免：硬编码在配置文件中
 
 # ✅ 使用 .env 文件（添加到 .gitignore）
 echo "ANTHROPIC_API_KEY=sk-ant-..." >> .env
-echo ".env" >> .gitignore</div>
+echo ".env" >> .gitignore</pre></div>
                   </div>
                 </div></div>
               </div>
@@ -893,14 +894,14 @@ echo ".env" >> .gitignore</div>
             <h3>安装</h3>
             <div class="code-block">
               <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-              <div class="code-body"># 一键安装
+              <pre class="code-body"># 一键安装
 curl -fsSL https://charm.sh/install/crush | bash
 
 # Homebrew
 brew install charmbracelet/tap/crush
 
 # Go install
-go install github.com/charmbracelet/crush@latest</div>
+go install github.com/charmbracelet/crush@latest</pre></div>
             </div>
           </div>
 
@@ -941,9 +942,9 @@ go install github.com/charmbracelet/crush@latest</div>
             <h3>环境变量</h3>
             <div class="code-block">
               <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-              <div class="code-body">export ANTHROPIC_API_KEY="sk-ant-..."   # Claude
+              <pre class="code-body">export ANTHROPIC_API_KEY="sk-ant-..."   # Claude
 export OPENAI_API_KEY="sk-..."           # OpenAI
-export GEMINI_API_KEY="AIza..."          # Gemini</div>
+export GEMINI_API_KEY="AIza..."          # Gemini</pre></div>
             </div>
           </div>
         </section>
