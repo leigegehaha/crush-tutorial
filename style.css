@@ -383,7 +383,9 @@ a:hover {
   font-size: 14px;
   line-height: 1.7;
   color: var(--text2);
-  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  tab-size: 2;
 }
 
 .code-body::-webkit-scrollbar { height: 6px; }
