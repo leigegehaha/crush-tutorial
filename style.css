@@ -175,6 +175,8 @@ a:hover {
   flex: 1;
   max-width: 960px;
   background: var(--bg);
+  position: relative;
+  padding-top: 3px;
 }
 
 .hero {
@@ -651,6 +653,11 @@ td code {
   height: 3px;
   background: var(--surface);
   z-index: 200;
+}
+
+/* Add scroll padding for anchor links */
+html {
+  scroll-padding-top: 20px;
 }
 
 .progress-fill {
